@@ -1,0 +1,27 @@
+extends ../layout/common
+
+block content
+	.container
+		.row
+			.col-xs-6.col-sm-6.col-md-6.col-lg-6
+				.text-center
+					h2 List User
+					a(href="/users/create" class="btn btn-primary mb-2") New User
+					form(action='/users/search', method='GET')
+						.form-group
+							input(type="text", name="q", class="form-control" value=q)
+						.form-group
+							button.btn.btn-warning Tìm kiếm
+					table.table.table-bordered
+						thead
+							tr
+								th Name
+								th Phone
+								th View
+						tbody
+							each user in users
+								tr
+									th= user.name
+									th= user.phone
+									th
+										a.btn.btn-warning(href=`/users/${user.id}`) Info

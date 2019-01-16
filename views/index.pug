@@ -1,0 +1,18 @@
+extends ./layout/common
+
+block title
+	title= title
+	
+block content
+	.container
+		nav.navbar.navbar-expand-lg.navbar-light.bg-light
+			#navbarNavAltMarkup.collapse.navbar-collapse
+				.navbar-nav
+					a.nav-item.nav-link.active(href='/')
+						| Home 
+						span.sr-only (current)
+					a.nav-item.nav-link(href='/users') User
+					a.nav-item.nav-link(href='#') Pricing
+					a.nav-item.nav-link(href='#') Disabled
+
+
