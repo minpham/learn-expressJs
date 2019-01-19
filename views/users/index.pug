@@ -2,6 +2,16 @@ extends ../layout/common
 
 block content
 	.container
+		nav.navbar.navbar-expand-lg.navbar-light.bg-light
+			#navbarNavAltMarkup.collapse.navbar-collapse
+				.navbar-nav
+					a.nav-item.nav-link.active(href='/')
+						| Home 
+						span.sr-only (current)
+					a.nav-item.nav-link(href='/users') User
+					a.nav-item.nav-link(href='/products') Products
+					a.nav-item.nav-link(href='#') Disabled
+			a.nav-item.nav-link(href="#")= user.name
 		.row
 			.col-xs-6.col-sm-6.col-md-6.col-lg-6
 				.text-center

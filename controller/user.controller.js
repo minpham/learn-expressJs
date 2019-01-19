@@ -20,6 +20,7 @@ module.exports = {
 				});
 			},
 	create: (req, res) => {
+				console.log(req.cookies);
 				res.render('users/create');
 			},
 	get: 	(req, res) => {
@@ -31,20 +32,7 @@ module.exports = {
 			},
 	postCreate: (req, res) => {
 					req.body.id = shortid.generate();
-					const errors = [];
-					if(!req.body.name) {
-						errors.push('Name is Required');
-					}
-					if(!req.body.phone) {
-						errors.push('Phone is Required');
-					}
-					if(errors.length){
-						res.render('users/create', {
-							errors,
-							values: req.body
-						});
-						return;
-					}
+					console.log(res.locals.success);
 					db.get('users').push(req.body).write();
 					res.redirect('/users');
 				}
