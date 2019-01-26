@@ -11,7 +11,8 @@ block content
 					a.nav-item.nav-link(href='/users') User
 					a.nav-item.nav-link(href='/products') Products
 					a.nav-item.nav-link(href='#') Disabled
-			a.nav-item.nav-link(href="#")= user.name
+			if(user)
+				a.nav-item.nav-link(href="#")= user.name
 		.row
 			.col-xs-6.col-sm-6.col-md-6.col-lg-6
 				.text-center
@@ -25,12 +26,15 @@ block content
 					table.table.table-bordered
 						thead
 							tr
+								th Avatar
 								th Name
 								th Phone
 								th View
 						tbody
 							each user in users
 								tr
+									th
+										img(src=user.avatar, width="60")
 									th= user.name
 									th= user.phone
 									th

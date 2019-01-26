@@ -1,7 +1,10 @@
 const express = require('express');
+const multer  = require('multer');
 const controller = require('../controller/user.controller');
 const validate = require('../validate/validate');
 const router = express.Router();
+
+const upload = multer({ dest: './public/uploads/' });
 
 
 //show all user 
@@ -27,6 +30,11 @@ router.get('/cookie', (req, res, next) => {
 router.get('/:id', controller.get );
 
 //add new user in database and redirect page
-router.post('/create', validate.postCreate, controller.postCreate );
+router.post(
+	'/create', 
+	upload.single('avatar'),
+	validate.postCreate, 
+	controller.postCreate 
+);
 
 module.exports = router;

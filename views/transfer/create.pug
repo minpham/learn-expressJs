@@ -1,0 +1,17 @@
+extends ../layout/common
+
+block content
+	.container.text-center
+		.row
+			.col-xs-6.col-md-6.col-sm-6.col-lg-6
+				h1 New Transfer
+				form(method="POST")
+					input(type="hidden", name="_csrf", value=csrfToken)
+					.form-group
+						label(for="account") Account
+						input#account.form-control(type="text", name="accountId")
+					.form-group
+						label(for="amount") Amount
+						input#amount.form-control(type="number", name="amount")
+					.form-group
+						button.btn.btn-dark Transfer
